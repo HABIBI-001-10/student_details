@@ -3,16 +3,8 @@ from django.http import HttpResponse
 from . models import Student
 
 # Create your views here.
-def index(request):
-    students = Student.objects.all().order_by('-id')[:3]
-    total_students = Student.objects.count()
-    departments = Student.objects.values('department').distinct().count()
-
-    return render(request, 'index.html', {
-        'students': students,
-        'total_students': total_students,
-        'departments': departments,
-    })
+def home(request):
+    return render(request, 'home.html')
 
 def add_student(request):
 
