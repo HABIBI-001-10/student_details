@@ -1,76 +1,94 @@
 <!DOCTYPE html>
-
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>View Student</title>
 </head>
+
 <body>
+
     <h1>Find Student</h1>
 
-```
-<form method="post">
-    {% csrf_token %}
-
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-
-    <button type="submit" name="action" value="find">
-        Find Student
-    </button>
-</form>
-
-{% if student %}
-
-    <p><strong>ID:</strong> {{ student.id }}</p>
-
     <form method="post">
+
         {% csrf_token %}
 
-        <input type="hidden" name="student_id" value="{{ student.id }}">
+        <label for="email">Email:</label>
+
+        <input
+            type="email"
+            id="email"
+            name="email"
+            required
+        >
+
+        <button type="submit">
+            Find Student
+        </button>
+
+    </form>
+
+
+    {% if student %}
+
+        <p>
+            <strong>ID:</strong>
+            {{ student.id }}
+        </p>
 
         <p>
             <strong>Name:</strong>
-            <input type="text" name="name" value="{{ student.name }}">
+            {{ student.name }}
         </p>
 
         <p>
             <strong>Email:</strong>
-            <input type="email" name="student_email" value="{{ student.email }}">
+            {{ student.email }}
         </p>
 
         <p>
             <strong>Date of Birth:</strong>
-            <input type="date" name="date_of_birth" value="{{ student.date_of_birth|date:'Y-m-d' }}">
+            {{ student.date_of_birth }}
         </p>
 
         <p>
             <strong>Department:</strong>
-            <input type="text" name="department" value="{{ student.department }}">
+            {{ student.department }}
         </p>
 
-        <button type="submit" name="action" value="update">
+
+        <!-- Update -->
+
+        <a href="{% url 'update_student' student.id %}">
             Update Student
-        </button>
-    </form>
+        </a>
 
-    <form method="post">
-        {% csrf_token %}
 
-        <input type="hidden" name="student_id" value="{{ student.id }}">
+        <!-- Delete -->
 
-        <button type="submit" name="action" value="delete">
-            Delete Student
-        </button>
-    </form>
+        <form
+            method="post"
+            action="{% url 'delete_student' student.id %}"
+        >
 
-{% else %}
+            {% csrf_token %}
 
-    <p>Student not found.</p>
+            <button type="submit">
+                Delete Student
+            </button>
 
-{% endif %}
-```
+        </form>
+
+
+    {% else %}
+
+        <p>Student not found.</p>
+
+    {% endif %}
 
 </body>
+
 </html>
