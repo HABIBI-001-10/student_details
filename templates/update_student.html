@@ -21,57 +21,7 @@
 
     {% csrf_token %}
 
-    <div>
-        <label for="name">Name:</label>
-        <input
-            type="text"
-            id="name"
-            name="name"
-            value="{{ student.name }}"
-            required
-        >
-    </div>
-
-    <br>
-
-    <div>
-        <label for="email">Email:</label>
-        <input
-            type="email"
-            id="email"
-            name="email"
-            value="{{ student.email }}"
-            required
-        >
-    </div>
-
-    <br>
-
-    <div>
-        <label for="date_of_birth">Date of Birth:</label>
-        <input
-            type="date"
-            id="date_of_birth"
-            name="date_of_birth"
-            value="{{ student.date_of_birth|date:'Y-m-d' }}"
-            required
-        >
-    </div>
-
-    <br>
-
-    <div>
-        <label for="department">Department:</label>
-        <input
-            type="text"
-            id="department"
-            name="department"
-            value="{{ student.department }}"
-            required
-        >
-    </div>
-
-    <br>
+    {{ form.as_p }}
 
     <button type="submit">
         Update Student
