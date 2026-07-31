@@ -1,32 +1,10 @@
 {% extends 'base.html' %}
 {% block title %}Add Student{% endblock %}
 {% block content %}
-<style>
-    .form {
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-       width: 100%;
-       height: 100vh;
-    }
-    form{
-        width :200px;
-        border :1px solid #000;
-        border-radius: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-    }
-</style>
-<div class="form">
 <h1>Add Student</h1>
 <form method="post" aria-required="true">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Add Student</button>
 </form>
-</div>
 {% endblock %}  

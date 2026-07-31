@@ -3,30 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
 <title>{% block title %}Student Management System{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <header>
+    <header class="site-header">
         <h1>Student Management System</h1>
-        <nav>
+        <nav class="site-nav">
             <a href="{% url 'home' %}">Home</a>
-            |
             <a href="{% url 'add_student' %}">Add Student</a>
-            |
             <a href="{% url 'view_student' %}">View Student</a>
         </nav>
     </header>
-    <hr>
+    <main class="page-shell">
+        <!-- Django Messages -->
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <p class="message">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
 
-    <!-- Django Messages -->
-    {% if messages %}
-        {% for message in messages %}
-            <p>{{ message }}</p>
-        {% endfor %}
-    {% endif %}
-
-    {% block content %}
-    {% endblock %}
+        <section class="content-card">
+            {% block content %}
+            {% endblock %}
+        </section>
+    </main>
 
 </body>
 </html>
