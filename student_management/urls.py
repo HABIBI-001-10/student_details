@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views
+from . import views,api_views
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -8,4 +8,5 @@ urlpatterns = [
     path('view/email/<str:email>/', views.view_student, name='view_student_by_email'),
     path('update/<int:id>/', views.update_student, name='update_student'),
     path('delete/<int:id>/', views.delete_student, name='delete_student'),
+    path('api/students/', api_views.student_list, name='student_list_api')
 ]
