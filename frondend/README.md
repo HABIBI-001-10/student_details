@@ -20,8 +20,8 @@ This project demonstrates a clean Django structure for a basic student administr
 ```text
 .
 ├── api/                     # Sample API app
-├── django_admin_main/       # Project settings and URL routing
-├── student_management/      # Main student management app
+├── config/       # Project settings and URL routing
+├── students/      # Main student management app
 ├── templates/               # HTML templates for the UI
 ├── static/                  # Static assets
 ├── requirements.txt         # Python dependencies

@@ -1,5 +1,5 @@
 """
-URL configuration for django_admin_main project.
+URL configuration for config project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/6.0/topics/http/urls/
@@ -20,7 +20,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     #Web application endpoint
-    path('student-management/', include('student_management.urls')),
+    path('students/', include('students.urls')),
 
     
 ]
