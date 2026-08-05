@@ -4,4 +4,7 @@ from .models import Student
 # Register your models here.
 @admin.register(Student)
 class StudentAdmin(admin.ModelAdmin):
-    list_display = ('id','name', 'email', 'date_of_birth', 'department', 'enrollment_date')
+    list_display = ('student_id','first_name', 'last_name', 'email', 'department','semester', 'enrollment_date', 'is_active')
+    search_fields = ('student_id', 'first_name', 'last_name', 'email')
+    list_filter = ('department', 'semester', 'is_active')
+    ordering = ('student_id',)
